@@ -10,7 +10,7 @@ const OgrenciList = () => {
       />
       <h2 style={{textAlign:"center", background:"pink"}}>ÖĞRENCİ LİSTESİ</h2>
 
-      <OgrenciItem/>
+<OgrenciItem/>
     </div>
   );
 }
