@@ -1,19 +1,30 @@
-import React from 'react'
-import Home from './components/Home'
+import React from "react";
+import Home from "./components/Home";
+import { createContext } from "react";
+import data from "./data";
+import { useState } from "react";
 
+//! 1-context alanı açıyoruz
 
-
-
+export const StudentContext = createContext();
 
 const App = () => {
-  return (
-    <div>
+  const [students, setStudents] = useState(data);
 
-<Home/>
+const changeColor=(id,newRenk)=>{
+
+setStudents(students.map((a)=>a.id===id ? {...a, color:newRenk} : a))
 
 
-    </div>
-  )
 }
 
-export default App
+
+  return (
+    //!2 bütün projeye gönderilmek üzere ilk Home sayfasını gönderilecek verilerle sarmalladım
+    <StudentContext.Provider value={{ students,changeColor }}>
+      <Home />
+    </StudentContext.Provider>
+  );
+};
+
+export default App;
